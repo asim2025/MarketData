@@ -1,9 +1,6 @@
 package org.marketdata.server;
 
-import org.marketdata.common.LatencyTracker;
-import org.marketdata.common.MarketDataListener;
-import org.marketdata.common.Quote;
-import org.marketdata.common.SymbolHistPrice;
+import org.marketdata.common.*;
 import org.marketdata.provider.simple.SimpleMarketDataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,11 +10,14 @@ import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 
 /**
  * Created by asim2025 on 3/28/2017.
  */
-public class MarketDataServer implements MarketDataListener {
+public
+class MarketDataServer implements MarketDataListener {
     private final static Logger log = LoggerFactory.getLogger(MarketDataServer.class);
     private final int MAX_SECS = 23_400;        // Total # seconds in a trading day (between 09:30-16:00)
     private final int port;
@@ -25,6 +25,8 @@ public class MarketDataServer implements MarketDataListener {
     private final InetAddress address;
     private final SimpleMarketDataProvider provider;
     private final LatencyTracker tracker;
+    private final ByteBuffer byteBuffer;
+    private final byte[] buffer;
 
     public static void main(String[] args) throws Exception {
         int port = 8445;
@@ -40,6 +42,8 @@ public class MarketDataServer implements MarketDataListener {
         this.address = InetAddress.getByName("localhost");
         this.provider = new SimpleMarketDataProvider(this);
         this.tracker = new LatencyTracker();
+        this.buffer =  new byte[1024];
+        this.byteBuffer =  ByteBuffer.wrap(buffer); //ByteBuffer.allocateDirect(1024).order(ByteOrder.nativeOrder());
     }
 
     public void start() {
@@ -52,13 +56,22 @@ public class MarketDataServer implements MarketDataListener {
     @Override
     public void process(Quote quote) throws Exception {
         tracker.begin();
+
+        byteBuffer.clear();
+        byteBuffer.putInt(quote.getSymbolArr().length);
+        byteBuffer.asCharBuffer().put(quote.getSymbolArr());
+        byteBuffer.position(byteBuffer.position() + quote.getSymbolArr().length*2);
+        byteBuffer.putDouble(quote.getPrice());
+        byteBuffer.putLong(quote.getTimeStamp());
+
+        /*
         byte[] buffer;
         try(ByteArrayOutputStream b = new ByteArrayOutputStream()) {
             try(ObjectOutputStream o = new ObjectOutputStream(b)) {
                 o.writeObject(quote);
             }
             buffer = b.toByteArray();
-        }
+        }*/
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, port);
         datagramSocket.send(packet);
         tracker.record();

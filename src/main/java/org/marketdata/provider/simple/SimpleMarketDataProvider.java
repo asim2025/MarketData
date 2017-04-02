@@ -1,8 +1,6 @@
 package org.marketdata.provider.simple;
 
-import org.marketdata.common.MarketDataListener;
-import org.marketdata.common.Quote;
-import org.marketdata.common.SymbolHistPrice;
+import org.marketdata.common.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

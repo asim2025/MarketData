@@ -1,11 +1,21 @@
 Java HotSpot(TM) 64-Bit Server VM (25.121-b13) for windows-amd64 JRE (1.8.0_121-b13), built on Dec 12 2016 18:21:36 by "java_re" with MS VC++ 10.0 (VS2010)
-Memory: 4k page, physical 16680864k(10559064k free), swap 19171232k(12223812k free)
-CommandLine flags: -XX:InitialHeapSize=1073741824 -XX:MaxHeapSize=1073741824 -XX:MaxNewSize=348966912 -XX:MaxTenuringThreshold=6 -XX:NewSize=348966912 -XX:OldPLABSize=16 -XX:OldSize=697933824 -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseConcMarkSweepGC -XX:-UseLargePagesIndividualAllocation -XX:+UseParNewGC 
+Memory: 4k page, physical 16680864k(11884136k free), swap 19171232k(13628952k free)
+CommandLine flags: -XX:+AggressiveOpts -XX:-HeapDumpOnOutOfMemoryError -XX:InitialHeapSize=1073741824 -XX:MaxHeapSize=1073741824 -XX:MaxTenuringThreshold=6 -XX:NewRatio=2 -XX:OldPLABSize=16 -XX:-PrintCompilation -XX:+PrintGC -XX:+PrintGCApplicationConcurrentTime -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:-PrintTenuringDistribution -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseConcMarkSweepGC -XX:-UseLargePagesIndividualAllocation -XX:+UseParNewGC 
+2017-04-02T02:23:47.260+0100: 0.604: Application time: 0.5102657 seconds
+2017-04-02T02:23:47.260+0100: 0.604: Total time for which application threads were stopped: 0.0002686 seconds, Stopping threads took: 0.0000672 seconds
+2017-04-02T02:23:49.268+0100: 2.612: Application time: 2.0079241 seconds
+2017-04-02T02:23:49.268+0100: 2.612: Total time for which application threads were stopped: 0.0000699 seconds, Stopping threads took: 0.0000249 seconds
+2017-04-02T02:23:55.407+0100: 8.751: Application time: 6.1391953 seconds
+2017-04-02T02:23:55.407+0100: 8.751: [GC (Allocation Failure) 2017-04-02T02:23:55.408+0100: 8.752: [ParNew: 279616K->1237K(314560K), 0.0022740 secs] 279616K->1237K(1013632K), 0.0027398 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-02T02:23:55.410+0100: 8.754: Total time for which application threads were stopped: 0.0028713 seconds, Stopping threads took: 0.0000154 seconds
+2017-04-02T02:23:55.410+0100: 8.754: Application time: 0.0001734 seconds
+2017-04-02T02:23:55.410+0100: 8.754: Total time for which application threads were stopped: 0.0000336 seconds, Stopping threads took: 0.0000130 seconds
 Heap
- par new generation   total 306688K, used 16358K [0x00000000c0000000, 0x00000000d4cc0000, 0x00000000d4cc0000)
-  eden space 272640K,   6% used [0x00000000c0000000, 0x00000000c0ff9b30, 0x00000000d0a40000)
-  from space 34048K,   0% used [0x00000000d0a40000, 0x00000000d0a40000, 0x00000000d2b80000)
-  to   space 34048K,   0% used [0x00000000d2b80000, 0x00000000d2b80000, 0x00000000d4cc0000)
- concurrent mark-sweep generation total 707840K, used 0K [0x00000000d4cc0000, 0x0000000100000000, 0x0000000100000000)
- Metaspace       used 3761K, capacity 4768K, committed 4864K, reserved 1056768K
+ par new generation   total 314560K, used 128631K [0x00000000c0000000, 0x00000000d5550000, 0x00000000d5550000)
+  eden space 279616K,  45% used [0x00000000c0000000, 0x00000000c7c68768, 0x00000000d1110000)
+  from space 34944K,   3% used [0x00000000d3330000, 0x00000000d34654f0, 0x00000000d5550000)
+  to   space 34944K,   0% used [0x00000000d1110000, 0x00000000d1110000, 0x00000000d3330000)
+ concurrent mark-sweep generation total 699072K, used 0K [0x00000000d5550000, 0x0000000100000000, 0x0000000100000000)
+ Metaspace       used 3913K, capacity 4768K, committed 4864K, reserved 1056768K
   class space    used 424K, capacity 464K, committed 512K, reserved 1048576K
+2017-04-02T02:24:08.017+0100: 21.368: Application time: 12.6136913 seconds
