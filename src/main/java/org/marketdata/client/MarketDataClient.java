@@ -1,7 +1,6 @@
 package org.marketdata.client;
 
-import org.marketdata.common.LatencyTracker;
-import org.marketdata.common.Quote;
+import org.marketdata.common.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,23 +49,10 @@ public class MarketDataClient {
 
     private void process(byte[] data) throws Exception {
         tracker.begin();
-        ByteBuffer byteBuffer = ByteBuffer.wrap(data); //ByteBuffer.allocateDirect(1024).order(ByteOrder.nativeOrder());
-        //byteBuffer.flip();
-        final int len = byteBuffer.getInt();
-        final char[] arr = new char[len];
-        for (int i = 0; i < len; i++) {
-            arr[i] = byteBuffer.getChar();
-        }
-        final double price = byteBuffer.getDouble();
-        final long timeStamp = byteBuffer.getLong();
-        Quote quote = new Quote(new String(arr), price, timeStamp);
+        //Quote quote = JavaSerialization.deserialize(data);
+        //Quote quote = ByteBufferSerialization.deserialize(data);
+        Quote quote = UnsafeSerialization.deserialize(data);
         //log.info("received: {}", quote);
-        /*try(ByteArrayInputStream b = new ByteArrayInputStream(data)) {
-            try (ObjectInputStream o = new ObjectInputStream(b)) {
-                Quote quote = (Quote) o.readObject();
-                //log.info("Quote: {}", quotePOJO);
-            }
-        }*/
         tracker.record();
     }
 }

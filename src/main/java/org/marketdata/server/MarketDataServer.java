@@ -25,8 +25,6 @@ class MarketDataServer implements MarketDataListener {
     private final InetAddress address;
     private final SimpleMarketDataProvider provider;
     private final LatencyTracker tracker;
-    private final ByteBuffer byteBuffer;
-    private final byte[] buffer;
 
     public static void main(String[] args) throws Exception {
         int port = 8445;
@@ -42,8 +40,6 @@ class MarketDataServer implements MarketDataListener {
         this.address = InetAddress.getByName("localhost");
         this.provider = new SimpleMarketDataProvider(this);
         this.tracker = new LatencyTracker();
-        this.buffer =  new byte[1024];
-        this.byteBuffer =  ByteBuffer.wrap(buffer); //ByteBuffer.allocateDirect(1024).order(ByteOrder.nativeOrder());
     }
 
     public void start() {
@@ -56,22 +52,9 @@ class MarketDataServer implements MarketDataListener {
     @Override
     public void process(Quote quote) throws Exception {
         tracker.begin();
-
-        byteBuffer.clear();
-        byteBuffer.putInt(quote.getSymbolArr().length);
-        byteBuffer.asCharBuffer().put(quote.getSymbolArr());
-        byteBuffer.position(byteBuffer.position() + quote.getSymbolArr().length*2);
-        byteBuffer.putDouble(quote.getPrice());
-        byteBuffer.putLong(quote.getTimeStamp());
-
-        /*
-        byte[] buffer;
-        try(ByteArrayOutputStream b = new ByteArrayOutputStream()) {
-            try(ObjectOutputStream o = new ObjectOutputStream(b)) {
-                o.writeObject(quote);
-            }
-            buffer = b.toByteArray();
-        }*/
+        //byte[] buffer = JavaSerialization.serialize(quote);
+        //byte[] buffer = ByteBufferSerialization.serialize(quote);
+        byte[] buffer = UnsafeSerialization.serialize(quote);
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, port);
         datagramSocket.send(packet);
         tracker.record();

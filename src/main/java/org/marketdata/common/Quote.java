@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by asim2025 on 3/28/2017.
  */
-public class Quote {
+public class Quote implements  Serializable {
     private String symbol;
     private double price;
     private long timeStamp;
