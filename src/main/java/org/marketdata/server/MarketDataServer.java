@@ -5,13 +5,9 @@ import org.marketdata.provider.simple.SimpleMarketDataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 
 /**
  * Created by asim2025 on 3/28/2017.
@@ -25,17 +21,26 @@ class MarketDataServer implements MarketDataListener {
     private final InetAddress address;
     private final SimpleMarketDataProvider provider;
     private final LatencyTracker tracker;
+    private final int serializeType;
+
 
     public static void main(String[] args) throws Exception {
-        int port = 8445;
+        if (args.length == 0) {
+            throw new Exception("usage: port serializeeType");
+        }
+        String[] arr = args[0].split("_");
+        int port = Integer.parseInt(arr[0]);
+        int serializeType = Integer.parseInt(arr[1]);
 
-        MarketDataServer server = new MarketDataServer(port);
+        log.info("port: {},  serializeType: {}", port, serializeType);
+        MarketDataServer server = new MarketDataServer(port, serializeType);
         server.start();
 
     }
 
-    public MarketDataServer(int port) throws Exception {
+    public MarketDataServer(int port, int serializeType) throws Exception {
         this.port = port;
+        this.serializeType = serializeType;
         this.datagramSocket = new DatagramSocket();
         this.address = InetAddress.getByName("localhost");
         this.provider = new SimpleMarketDataProvider(this);
@@ -52,9 +57,14 @@ class MarketDataServer implements MarketDataListener {
     @Override
     public void process(Quote quote) throws Exception {
         tracker.begin();
-        //byte[] buffer = JavaSerialization.serialize(quote);
-        //byte[] buffer = ByteBufferSerialization.serialize(quote);
-        byte[] buffer = UnsafeSerialization.serialize(quote);
+        byte[] buffer = null;
+
+        switch (serializeType) {
+            case 1: buffer = JavaSerialization.serialize(quote); break;
+            case 2: buffer = ByteBufferSerialization.serialize(quote); break;
+            case 3: buffer = UnsafeSerialization.serialize(quote); break;
+        }
+
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, port);
         datagramSocket.send(packet);
         tracker.record();

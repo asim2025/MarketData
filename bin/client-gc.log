@@ -1,25 +1,61 @@
 Java HotSpot(TM) 64-Bit Server VM (25.121-b13) for windows-amd64 JRE (1.8.0_121-b13), built on Dec 12 2016 18:21:36 by "java_re" with MS VC++ 10.0 (VS2010)
-Memory: 4k page, physical 16680864k(11898480k free), swap 19171232k(13954920k free)
+Memory: 4k page, physical 16680864k(11283020k free), swap 19171232k(13211836k free)
 CommandLine flags: -XX:+AggressiveOpts -XX:-HeapDumpOnOutOfMemoryError -XX:InitialHeapSize=1073741824 -XX:MaxHeapSize=1073741824 -XX:MaxTenuringThreshold=6 -XX:NewRatio=2 -XX:OldPLABSize=16 -XX:-PrintCompilation -XX:+PrintGC -XX:+PrintGCApplicationConcurrentTime -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:-PrintTenuringDistribution -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseConcMarkSweepGC -XX:-UseLargePagesIndividualAllocation -XX:+UseParNewGC 
-2017-04-03T03:17:06.842+0100: 0.597: Application time: 0.5051449 seconds
-2017-04-03T03:17:06.842+0100: 0.597: Total time for which application threads were stopped: 0.0001888 seconds, Stopping threads took: 0.0000399 seconds
-2017-04-03T03:17:08.846+0100: 2.600: Application time: 2.0035619 seconds
-2017-04-03T03:17:08.846+0100: 2.600: Total time for which application threads were stopped: 0.0000901 seconds, Stopping threads took: 0.0000403 seconds
-2017-04-03T03:17:14.934+0100: 8.692: Application time: 6.0916942 seconds
-2017-04-03T03:17:14.934+0100: 8.692: [GC (Allocation Failure) 2017-04-03T03:17:14.934+0100: 8.693: [ParNew: 279616K->1260K(314560K), 0.0021918 secs] 279616K->1260K(1013632K), 0.0026430 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2017-04-03T03:17:14.934+0100: 8.695: Total time for which application threads were stopped: 0.0027477 seconds, Stopping threads took: 0.0000162 seconds
-2017-04-03T03:17:14.934+0100: 8.695: Application time: 0.0001481 seconds
-2017-04-03T03:17:14.934+0100: 8.695: Total time for which application threads were stopped: 0.0000340 seconds, Stopping threads took: 0.0000138 seconds
-2017-04-03T03:17:14.934+0100: 8.695: Application time: 0.0000257 seconds
-2017-04-03T03:17:14.934+0100: 8.695: Total time for which application threads were stopped: 0.0000261 seconds, Stopping threads took: 0.0000103 seconds
-2017-04-03T03:17:14.934+0100: 8.695: Application time: 0.0000265 seconds
-2017-04-03T03:17:14.934+0100: 8.695: Total time for which application threads were stopped: 0.0000225 seconds, Stopping threads took: 0.0000071 seconds
+2017-04-05T02:32:11.211+0100: 0.600: Application time: 0.5041849 seconds
+2017-04-05T02:32:11.211+0100: 0.601: Total time for which application threads were stopped: 0.0002046 seconds, Stopping threads took: 0.0000407 seconds
+2017-04-05T02:32:15.236+0100: 4.625: Application time: 4.0246424 seconds
+2017-04-05T02:32:15.236+0100: 4.625: Total time for which application threads were stopped: 0.0000869 seconds, Stopping threads took: 0.0000217 seconds
+2017-04-05T02:32:16.246+0100: 5.635: Application time: 1.0100796 seconds
+2017-04-05T02:32:16.246+0100: 5.636: Total time for which application threads were stopped: 0.0001667 seconds, Stopping threads took: 0.0001399 seconds
+2017-04-05T02:32:16.756+0100: 6.146: Application time: 0.5104822 seconds
+2017-04-05T02:32:16.756+0100: 6.146: [GC (Allocation Failure) 2017-04-05T02:32:16.757+0100: 6.146: [ParNew: 279616K->1578K(314560K), 0.0026426 secs] 279616K->1578K(1013632K), 0.0030969 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:16.760+0100: 6.149: Total time for which application threads were stopped: 0.0032016 seconds, Stopping threads took: 0.0000146 seconds
+2017-04-05T02:32:16.760+0100: 6.149: Application time: 0.0001434 seconds
+2017-04-05T02:32:16.760+0100: 6.149: Total time for which application threads were stopped: 0.0000656 seconds, Stopping threads took: 0.0000217 seconds
+2017-04-05T02:32:16.760+0100: 6.149: Application time: 0.0000521 seconds
+2017-04-05T02:32:16.760+0100: 6.150: Total time for which application threads were stopped: 0.0000458 seconds, Stopping threads took: 0.0000158 seconds
+2017-04-05T02:32:17.535+0100: 6.925: Application time: 0.7751530 seconds
+2017-04-05T02:32:17.535+0100: 6.925: [GC (Allocation Failure) 2017-04-05T02:32:17.535+0100: 6.925: [ParNew: 281194K->2024K(314560K), 0.0025462 secs] 281194K->2024K(1013632K), 0.0026291 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:17.538+0100: 6.927: Total time for which application threads were stopped: 0.0027358 seconds, Stopping threads took: 0.0000166 seconds
+2017-04-05T02:32:18.368+0100: 7.757: Application time: 0.8298623 seconds
+2017-04-05T02:32:18.368+0100: 7.757: [GC (Allocation Failure) 2017-04-05T02:32:18.368+0100: 7.757: [ParNew: 281640K->1929K(314560K), 0.0026773 secs] 281640K->1929K(1013632K), 0.0027804 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:18.371+0100: 7.760: Total time for which application threads were stopped: 0.0029080 seconds, Stopping threads took: 0.0000190 seconds
+2017-04-05T02:32:19.157+0100: 8.547: Application time: 0.7866560 seconds
+2017-04-05T02:32:19.157+0100: 8.547: [GC (Allocation Failure) 2017-04-05T02:32:19.157+0100: 8.547: [ParNew: 281545K->1968K(314560K), 0.0023700 secs] 281545K->1968K(1013632K), 0.0024478 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:19.160+0100: 8.549: Total time for which application threads were stopped: 0.0025537 seconds, Stopping threads took: 0.0000186 seconds
+2017-04-05T02:32:19.872+0100: 9.262: Application time: 0.7122268 seconds
+2017-04-05T02:32:19.872+0100: 9.262: [GC (Allocation Failure) 2017-04-05T02:32:19.872+0100: 9.262: [ParNew: 281584K->2268K(314560K), 0.0025063 secs] 281584K->2268K(1013632K), 0.0025991 secs] [Times: user=0.06 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:19.875+0100: 9.264: Total time for which application threads were stopped: 0.0027026 seconds, Stopping threads took: 0.0000178 seconds
+2017-04-05T02:32:20.596+0100: 9.986: Application time: 0.7215640 seconds
+2017-04-05T02:32:20.596+0100: 9.986: [GC (Allocation Failure) 2017-04-05T02:32:20.596+0100: 9.986: [ParNew: 281884K->1872K(314560K), 0.0023206 secs] 281884K->1872K(1013632K), 0.0024549 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:20.599+0100: 9.988: Total time for which application threads were stopped: 0.0025628 seconds, Stopping threads took: 0.0000166 seconds
+2017-04-05T02:32:21.331+0100: 10.721: Application time: 0.7325594 seconds
+2017-04-05T02:32:21.331+0100: 10.721: [GC (Allocation Failure) 2017-04-05T02:32:21.331+0100: 10.721: [ParNew: 281488K->521K(314560K), 0.0079056 secs] 281488K->2338K(1013632K), 0.0079921 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
+2017-04-05T02:32:21.339+0100: 10.729: Total time for which application threads were stopped: 0.0080964 seconds, Stopping threads took: 0.0000162 seconds
+2017-04-05T02:32:22.055+0100: 11.445: Application time: 0.7159696 seconds
+2017-04-05T02:32:22.055+0100: 11.445: [GC (Allocation Failure) 2017-04-05T02:32:22.055+0100: 11.445: [ParNew: 280137K->130K(314560K), 0.0019220 secs] 281954K->1946K(1013632K), 0.0019970 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:22.057+0100: 11.447: Total time for which application threads were stopped: 0.0021179 seconds, Stopping threads took: 0.0000340 seconds
+2017-04-05T02:32:22.789+0100: 12.179: Application time: 0.7316476 seconds
+2017-04-05T02:32:22.789+0100: 12.179: [GC (Allocation Failure) 2017-04-05T02:32:22.789+0100: 12.179: [ParNew: 279746K->65K(314560K), 0.0015779 secs] 281562K->1881K(1013632K), 0.0016482 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:22.791+0100: 12.181: Total time for which application threads were stopped: 0.0017470 seconds, Stopping threads took: 0.0000162 seconds
+2017-04-05T02:32:23.502+0100: 12.892: Application time: 0.7110507 seconds
+2017-04-05T02:32:23.502+0100: 12.892: [GC (Allocation Failure) 2017-04-05T02:32:23.502+0100: 12.892: [ParNew: 279681K->18K(314560K), 0.0016608 secs] 281497K->1834K(1013632K), 0.0017620 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:23.504+0100: 12.894: Total time for which application threads were stopped: 0.0018840 seconds, Stopping threads took: 0.0000154 seconds
+2017-04-05T02:32:24.223+0100: 13.612: Application time: 0.7185999 seconds
+2017-04-05T02:32:24.223+0100: 13.612: [GC (Allocation Failure) 2017-04-05T02:32:24.223+0100: 13.612: [ParNew: 279634K->8K(314560K), 0.0016047 secs] 281450K->1824K(1013632K), 0.0016913 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:24.224+0100: 13.614: Total time for which application threads were stopped: 0.0018090 seconds, Stopping threads took: 0.0000178 seconds
+2017-04-05T02:32:24.940+0100: 14.330: Application time: 0.7156294 seconds
+2017-04-05T02:32:24.940+0100: 14.330: [GC (Allocation Failure) 2017-04-05T02:32:24.940+0100: 14.330: [ParNew: 279624K->8K(314560K), 0.0015929 secs] 281440K->1824K(1013632K), 0.0016751 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:24.942+0100: 14.331: Total time for which application threads were stopped: 0.0017778 seconds, Stopping threads took: 0.0000166 seconds
+2017-04-05T02:32:25.681+0100: 15.071: Application time: 0.7397997 seconds
+2017-04-05T02:32:25.681+0100: 15.071: [GC (Allocation Failure) 2017-04-05T02:32:25.681+0100: 15.071: [ParNew: 279624K->8K(314560K), 0.0016213 secs] 281440K->1824K(1013632K), 0.0017019 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2017-04-05T02:32:25.683+0100: 15.073: Total time for which application threads were stopped: 0.0018070 seconds, Stopping threads took: 0.0000182 seconds
 Heap
- par new generation   total 314560K, used 128655K [0x00000000c0000000, 0x00000000d5550000, 0x00000000d5550000)
-  eden space 279616K,  45% used [0x00000000c0000000, 0x00000000c7c68870, 0x00000000d1110000)
-  from space 34944K,   3% used [0x00000000d3330000, 0x00000000d346b3c8, 0x00000000d5550000)
+ par new generation   total 314560K, used 103471K [0x00000000c0000000, 0x00000000d5550000, 0x00000000d5550000)
+  eden space 279616K,  37% used [0x00000000c0000000, 0x00000000c6509be0, 0x00000000d1110000)
+  from space 34944K,   0% used [0x00000000d3330000, 0x00000000d3332250, 0x00000000d5550000)
   to   space 34944K,   0% used [0x00000000d1110000, 0x00000000d1110000, 0x00000000d3330000)
- concurrent mark-sweep generation total 699072K, used 0K [0x00000000d5550000, 0x0000000100000000, 0x0000000100000000)
- Metaspace       used 3924K, capacity 4832K, committed 5120K, reserved 1056768K
-  class space    used 429K, capacity 464K, committed 512K, reserved 1048576K
-2017-04-03T03:17:27.570+0100: 21.331: Application time: 12.6357894 seconds
+ concurrent mark-sweep generation total 699072K, used 1816K [0x00000000d5550000, 0x0000000100000000, 0x0000000100000000)
+ Metaspace       used 5410K, capacity 5578K, committed 5888K, reserved 1056768K
+  class space    used 590K, capacity 667K, committed 768K, reserved 1048576K
+2017-04-05T02:32:35.980+0100: 25.370: Application time: 10.2965969 seconds
