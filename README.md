@@ -32,14 +32,16 @@ Therefore, in this project, I will build market data collection and distribution
 
 Let's see if I can finish this one before life hits me again .... :)
 
+Design
+A typical client server architecture.  
+Server publishes market data.
+Client subscribes to market data.
 
-Attempt 1 - Results  (details and charts in the data folder)
 
-Process 1: Publish 1 million quotes.
-Process 2: Read 1 million quotes.
-Local host , loopback (no network)
+Attempt 1 - Local host , loopback (no network)
 
-Process 2 Results (no warm-up)
+Client Results (no warm-up)
+    
     Java Serialization :
         - P99 : 23.711 micros
         - Max : 116391.935 micros
@@ -58,3 +60,8 @@ Process 2 Results (no warm-up)
         - 846712 out of 1 million  (84.6%)
         - 0 out of order packets
 
+ data folder for percentiles and charts
+ 
+Server Results (no warm-up)
+ data folders - for percentiles and charts
+ 
