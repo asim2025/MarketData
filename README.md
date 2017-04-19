@@ -30,7 +30,6 @@ Therefore, in this project, I will build market data collection and distribution
 - Internal conflation: 1%
 - Messages per second: 1,000,000
 
-Let's see if I can finish this one before life hits me again .... :)
 
 Design
 - A typical client server architecture.  
@@ -65,3 +64,10 @@ Client Results (no warm-up)
 Server Results (no warm-up)
 - data folders - for percentiles and charts
  
+Result Summary:
+ - Latency in 1000s nanos.
+ - 1+ YG collections.
+ - 0 FG collection.
+ - Not all messages processed by client.
+(basically more work to be done to meet original goals)
+
