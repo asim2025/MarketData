@@ -16,7 +16,7 @@ public class SimpleMarketDataProvider {
     private final MarketDataListener listener;
 
     public SimpleMarketDataProvider(MarketDataListener listener) {
-        random = new Random();
+        random = new Random(1000L);
         this.listener = listener;
     }
 

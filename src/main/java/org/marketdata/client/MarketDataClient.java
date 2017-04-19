@@ -16,6 +16,9 @@ public class MarketDataClient {
     private final LatencyTracker tracker;
     private final int serializeType;
     private final int socketBufferSize;
+    private int nooo;       // out of order count
+    private int npackets;
+    private long lastTimestamp;
 
     public static void main(String[] args) throws Exception {
         if (args.length == 0) {
@@ -25,7 +28,7 @@ public class MarketDataClient {
         String[] arr = args[0].split("_");
         int port = Integer.parseInt(arr[0]);
         int serializeType = Integer.parseInt(arr[1]);
-        int socketBufferSize = Integer.parseInt(arr[2]);
+        int socketBufferSize = -1; // Integer.parseInt(arr[2]);
 
         log.info("Port: {},  SerializeType: {}, socketBufferSize: {}", port, serializeType, socketBufferSize);
         MarketDataClient client = new MarketDataClient(port, serializeType, socketBufferSize);
@@ -42,27 +45,26 @@ public class MarketDataClient {
     public void receive() throws Exception {
         DatagramSocket datagramSocket = new DatagramSocket(port);
         datagramSocket.setSoTimeout(10000);
-        datagramSocket.setReceiveBufferSize(socketBufferSize);
+        if (socketBufferSize > 0) {
+            datagramSocket.setReceiveBufferSize(socketBufferSize);
+        }
         log.info("connected to port {} ...", port);
-        int nquote = 0;
 
         try {
             while (true) {
                 byte[] buffer = new byte[256];
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                 datagramSocket.receive(packet);
-                ++nquote;
                 process(packet.getData());
             }
         } finally {
-            log.info("processed quote: {}", nquote);
+            log.info("processed packets: ooo {}, total {}", nooo, npackets);
             tracker.print();
         }
     }
 
     private void process(byte[] data) throws Exception {
         tracker.begin();
-
         Quote quote = null;
 
         switch (serializeType) {
@@ -71,8 +73,14 @@ public class MarketDataClient {
             case 3: quote = UnsafeSerialization.deserialize(data); break;
         }
 
-        quote.hashCode();
-        //log.info("received: {}", quote);
+        if (lastTimestamp == 0) {
+            lastTimestamp = quote.getTimeStamp();
+        } else if ( lastTimestamp > quote.getTimeStamp() ){
+            nooo++;
+        }
+
+        npackets++;
+        lastTimestamp = quote.getTimeStamp();
         tracker.record();
     }
 }

@@ -31,3 +31,30 @@ Therefore, in this project, I will build market data collection and distribution
 - Messages per second: 1,000,000
 
 Let's see if I can finish this one before life hits me again .... :)
+
+
+Attempt 1 - Results  (details and charts in the data folder)
+
+Process 1: Publish 1 million quotes.
+Process 2: Read 1 million quotes.
+Local host , loopback (no network)
+
+Process 2 Results (no warm-up)
+    Java Serialization :
+        - P99 : 23.711 micros
+        - Max : 116391.935 micros
+        - 645527 out of 1 million (64.5%)
+        - 0 out of orders packets
+
+    ByteBuffer Serialization :
+        - P99 : 1.185 micros
+        - Max : 2297.855 micros
+        - 854971 out of 1 million (85.4%)
+        - 0 out of order packets
+
+    Unsafe Serialization :
+        - P99 : 1.185 micros
+        - Max : 5521.407 micros
+        - 846712 out of 1 million  (84.6%)
+        - 0 out of order packets
+
