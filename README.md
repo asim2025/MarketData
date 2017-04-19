@@ -33,9 +33,9 @@ Therefore, in this project, I will build market data collection and distribution
 Let's see if I can finish this one before life hits me again .... :)
 
 Design
-A typical client server architecture.  
-Server publishes market data.
-Client subscribes to market data.
+- A typical client server architecture.  
+- Server publishes market data.
+- Client subscribes to market data.
 
 
 Attempt 1 - Local host , loopback (no network)
@@ -60,8 +60,8 @@ Client Results (no warm-up)
         - 846712 out of 1 million  (84.6%)
         - 0 out of order packets
 
- data folder for percentiles and charts
+- data folder for percentiles and charts
  
 Server Results (no warm-up)
- data folders - for percentiles and charts
+- data folders - for percentiles and charts
  
