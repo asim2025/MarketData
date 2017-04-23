@@ -1,6 +1,6 @@
 # MarketData
 
-[Motivation for this project][background.md]
+[Motivation for this project](./background.md)
 
 This project - MarketData - is an interesting high performance / low latency problem.  I work with market data in my
 day job but I don't collect data from exchanges, instead there is another team that connects to various providers,
