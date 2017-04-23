@@ -33,18 +33,21 @@ Client Results (no warm-up)
         - Max : 116391.935 micros
         - 645527 out of 1 million (64.5%)
         - 0 out of orders packets
-
+        - ![Chart](data/Histogram_Client_A1.png)
+    
     ByteBuffer Serialization :
         - P99 : 1.185 micros
         - Max : 2297.855 micros
         - 854971 out of 1 million (85.4%)
         - 0 out of order packets
+        - [Chart](data/Histogram_Client_A2.png)
 
     Unsafe Serialization :
         - P99 : 1.185 micros
         - Max : 5521.407 micros
         - 846712 out of 1 million  (84.6%)
         - 0 out of order packets
+        - [Chart](data/Histogram_Client_A3.png)
 
 - data folder for percentiles and charts
  
