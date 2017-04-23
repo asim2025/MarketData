@@ -28,26 +28,26 @@ Attempt 1 - Local host , loopback (no network)
 
 Client Results (no warm-up)
     
-    Java Serialization :
-        - P99 : 23.711 micros
-        - Max : 116391.935 micros
-        - 645527 out of 1 million (64.5%)
-        - 0 out of orders packets
-        - ![Chart](data/Histogram_Client_A1.png)
+   Java Serialization :
+   1. P99 : 23.711 micros
+   2. Max : 116391.935 micros
+   3. 645527 out of 1 million (64.5%)
+   4. 0 out of orders packets
+   ![Chart](data/Histogram_Client_A1.png)
     
-    ByteBuffer Serialization :
-        - P99 : 1.185 micros
-        - Max : 2297.855 micros
-        - 854971 out of 1 million (85.4%)
-        - 0 out of order packets
-        - [Chart](data/Histogram_Client_A2.png)
+   ByteBuffer Serialization :
+   1. P99 : 1.185 micros
+   2. Max : 2297.855 micros
+   3. 854971 out of 1 million (85.4%)
+   4. 0 out of order packets
+   ![Chart](data/Histogram_Client_A2.png)
 
-    Unsafe Serialization :
-        - P99 : 1.185 micros
-        - Max : 5521.407 micros
-        - 846712 out of 1 million  (84.6%)
-        - 0 out of order packets
-        - [Chart](data/Histogram_Client_A3.png)
+   Unsafe Serialization :
+   1. P99 : 1.185 micros
+   2. Max : 5521.407 micros
+   3. 846712 out of 1 million  (84.6%)
+   4. 0 out of order packets
+   ![Chart](data/Histogram_Client_A3.png)
 
 - data folder for percentiles and charts
  
@@ -56,8 +56,9 @@ Server Results (no warm-up)
  
 Result Summary:
  - Latency in 1000s nanos.
- - 1+ YG collections.
+ - Several YG collections.
  - 0 FG collection.
  - Not all messages processed by client.
+
 (basically more work to be done to meet original goals)
 
