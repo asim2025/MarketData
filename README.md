@@ -24,9 +24,9 @@ Design
 - Client subscribes to market data.
 
 
-Attempt 1 - Local host , loopback (no network)
+Attempt 1 - Local host , loopback (no network), no warmup
 
-Client Results (no warm-up)
+Client Results
     
    Java Serialization :
    1. P99 : 23.711 micros
@@ -62,3 +62,18 @@ Result Summary:
 
 (basically more work to be done to meet original goals)
 
+
+
+Attempt 2 - Local host , loopback (no network), no warmup
+
+Client Results
+    
+   Unsasfe Serialization :
+   1. P99 : 1.185 micros
+   2. Max : 5111.807 micros
+   3. 913871 out of 1 million (91.3%)
+   4. 0 out of orders packets
+
+Result Summary:
+   - Reusing Datagram packet reduced data loss from 15.4% to 8.7%
+   
