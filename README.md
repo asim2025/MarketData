@@ -24,9 +24,9 @@ Therefore, in this project, I will build market data collection and distribution
 - Client subscribes to market data.
 
 
-**Attempt 1 - Local host , loopback (no network), no warmup
+**Attempt 1 - Local host , loopback (no network), no warmup**
 
-*Client Results
+*Client Results*
     
    Java Serialization :
    1. P99 : 23.711 micros
@@ -51,10 +51,10 @@ Therefore, in this project, I will build market data collection and distribution
 
 - data folder for percentiles and charts
  
-*Server Results (no warm-up)
+*Server Results (no warm-up)*
 - data folders - for percentiles and charts
  
-*Result Summary:
+*Result Summary:*
  - Latency in 1000s nanos.
  - Several YG collections.
  - 0 FG collection.
@@ -64,9 +64,9 @@ Therefore, in this project, I will build market data collection and distribution
 
 
 
-**Attempt 2 - Local host , loopback (no network), no warmup
+**Attempt 2 - Local host , loopback (no network), no warmup**
 
-*Client Results
+*Client Results*
     
    Unsasfe Serialization :
    1. P99 : 1.185 micros
@@ -74,6 +74,6 @@ Therefore, in this project, I will build market data collection and distribution
    3. 913871 out of 1 million (91.3%)
    4. 0 out of orders packets
 
-*Result Summary:
+*Result Summary:*
    - Reusing Datagram packet reduced data loss from 15.4% to 8.7%
    
