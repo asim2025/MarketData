@@ -22,7 +22,7 @@ class MarketDataServer implements MarketDataListener {
     private final SimpleMarketDataProvider provider;
     private final LatencyTracker tracker;
     private final int serializeType;
-
+    private final DatagramPacket packet;
 
     public static void main(String[] args) throws Exception {
         if (args.length == 0) {
@@ -43,6 +43,7 @@ class MarketDataServer implements MarketDataListener {
         this.serializeType = serializeType;
         this.datagramSocket = new DatagramSocket();
         this.address = InetAddress.getByName("localhost");
+        this.packet = new DatagramPacket(new byte[256], 256, this.address, port);
         this.provider = new SimpleMarketDataProvider(this);
         this.tracker = new LatencyTracker();
     }
@@ -65,7 +66,7 @@ class MarketDataServer implements MarketDataListener {
             case 3: buffer = UnsafeSerialization.serialize(quote); break;
         }
 
-        DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, port);
+        packet.setData(buffer, 0, buffer.length);
         datagramSocket.send(packet);
         tracker.record();
     }

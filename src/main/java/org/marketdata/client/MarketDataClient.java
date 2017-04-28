@@ -50,10 +50,16 @@ public class MarketDataClient {
         }
         log.info("connected to port {} ...", port);
 
+        DatagramPacket packet = null;
         try {
             while (true) {
                 byte[] buffer = new byte[256];
-                DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+                if (packet == null) {
+                    packet = new DatagramPacket(buffer, buffer.length);
+                } else {
+                    packet.setData(buffer, 0, buffer.length);
+                }
+
                 datagramSocket.receive(packet);
                 process(packet.getData());
             }
